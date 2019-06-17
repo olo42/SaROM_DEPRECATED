@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SaROM.BL;
+using SaROM.Desktop.Views;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SaROM.Desktop
 {
@@ -20,9 +11,33 @@ namespace SaROM.Desktop
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Login login = null;
+        private LoginManager loginManager = null;
+
         public MainWindow()
         {
             InitializeComponent();
+            RegisterLoginControl();
+        }
+
+        private void OnSuccessfullLogin(object sender, EventArgs e)
+        {
+            var overview = new Overview();
+            SetContent(overview);
+        }
+
+        private void RegisterLoginControl()
+        {
+            loginManager = new LoginManager();
+            login = new Login(loginManager);
+            login.LoginSuccessfull += OnSuccessfullLogin;
+
+            SetContent(login);
+        }
+
+        private void SetContent(Control overview)
+        {
+            cc_Main.Content = overview;
         }
     }
 }
