@@ -13,7 +13,7 @@
     <Grid Margin="5" Name="grd_main">
         <Grid.RowDefinitions>
             <RowDefinition Name="grd_RowTop" Height="70"/>
-            <RowDefinition Name="grd_RowContent" Height="Auto"/>
+            <RowDefinition Name="grd_RowContent" />
         </Grid.RowDefinitions>
         <Separator Grid.Row="0" Height="2" Background="#FFF5FF22" VerticalAlignment="Bottom" />
         <Label Grid.Row="0" Content="SaROM - Search and Rescue Operation Management" HorizontalAlignment="Left" 
