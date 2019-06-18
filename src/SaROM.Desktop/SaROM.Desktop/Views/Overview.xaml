@@ -6,8 +6,17 @@
              xmlns:local="clr-namespace:SaROM.Desktop.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Label Content="Overview" HorizontalAlignment="Left" Margin="255,235,0,0" VerticalAlignment="Top"/>
-
-    </Grid>
+    <Grid HorizontalAlignment="Center">
+        <Grid.Effect>
+            <DropShadowEffect/>
+        </Grid.Effect>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Name="btn_MasterData" Grid.Column="0" Width="100" Height="100" Margin="10" HorizontalAlignment="Center" />
+        <Button Name="btn_OperationManagement" Grid.Column="1" Width="100" Height="100" Margin="10" HorizontalAlignment="Center" />
+        <Button Name="btn_Archive" Grid.Column="2" Width="100" Height="100" Margin="10" HorizontalAlignment="Center" />
+     </Grid>
 </UserControl>
