@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using SaROM.BL;
+using SaROM.Desktop.Dialogs;
+using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -9,15 +12,24 @@ namespace SaROM.Desktop.Views
   /// </summary>
   public partial class Operation : UserControl
   {
-    private List<Button> buttonsEnabledOnMisson;
     private List<Button> buttonsDisabledOnMisson;
+    private List<Button> buttonsEnabledOnMisson;
+    private OperationManager operationManager;
 
-    public Operation()
+    public Operation(BL.OperationManager operationManager)
     {
       InitializeComponent();
 
+      this.operationManager = operationManager;
+      operationManager.OperationCreated += this.OperationManager_OperationCreated;
+
       InitializeButtonsEnabledOnMisson();
-      InitializeButtonsDisablenOnMisson();
+      InitializeButtonsDisabledOnMisson();
+    }
+
+    private void OperationManager_OperationCreated(object sender, EventArgs e)
+    {
+      SetOperationInformation();
     }
 
     private void Button_CreateMisson_Click(object sender, RoutedEventArgs e)
@@ -25,7 +37,7 @@ namespace SaROM.Desktop.Views
       SetIsEnabled(true, buttonsEnabledOnMisson);
       SetIsEnabled(false, buttonsDisabledOnMisson);
 
-      var run = new RunMisson();
+      var run = new CreateOperationDialog(operationManager);
       run.Show();
     }
 
@@ -33,6 +45,15 @@ namespace SaROM.Desktop.Views
     {
       SetIsEnabled(false, buttonsEnabledOnMisson);
       SetIsEnabled(true, buttonsDisabledOnMisson);
+    }
+
+    private void InitializeButtonsDisabledOnMisson()
+    {
+      buttonsDisabledOnMisson = new List<Button>
+      {
+        Button_Archive,
+        Button_CreateMisson
+      };
     }
 
     private void InitializeButtonsEnabledOnMisson()
@@ -48,21 +69,27 @@ namespace SaROM.Desktop.Views
       };
     }
 
-    private void InitializeButtonsDisablenOnMisson()
-    {
-      buttonsDisabledOnMisson = new List<Button>
-      {
-        Button_Archive,
-        Button_CreateMisson
-      };
-    }
-
     private void SetIsEnabled(bool state, List<Button> buttons)
     {
       foreach (var button in buttons)
       {
         button.IsEnabled = state;
       }
+    }
+
+    private void SetOperationInformation()
+    {
+      var operation = operationManager.GetOperation();
+
+      Label_Identifier.Content = operation.Identifier;
+      Label_MissionOrder.Content = operation.MissionOrder;
+      Label_PlaceOfAction.Content = operation.PlaceOfAction;
+      Label_AlertedBy.Content = operation.AlertedBy;
+      Label_TimeOfAlterting.Content = operation.TimeOfAlterting;
+      Label_PoliceContact.Content = operation.PoliceContact;
+      Label_OperationManager.Content = operation.OperationManager;
+      Label_HeadquarterContact.Content = operation.HeadquarterContact;
+      Label_Secretary.Content = operation.Secretary;
     }
   }
 }

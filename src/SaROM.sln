@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaROM.Desktop", "SaROM.Desk
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaROM.BL", "SaROM.BL\SaROM.BL.csproj", "{313A0B1B-D506-4EC1-96E8-241021653AF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaROM.Entities", "SaROM.Entities\SaROM.Entities.csproj", "{358D2AEA-6341-4BF3-8A70-491695E62D62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{313A0B1B-D506-4EC1-96E8-241021653AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{313A0B1B-D506-4EC1-96E8-241021653AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{313A0B1B-D506-4EC1-96E8-241021653AF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{358D2AEA-6341-4BF3-8A70-491695E62D62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{358D2AEA-6341-4BF3-8A70-491695E62D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{358D2AEA-6341-4BF3-8A70-491695E62D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{358D2AEA-6341-4BF3-8A70-491695E62D62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

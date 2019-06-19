@@ -1,0 +1,71 @@
+﻿<Window x:Class="SaROM.Desktop.Dialogs.CreateOperationDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SaROM.Desktop.Dialogs"
+        mc:Ignorable="d"
+        Title="SaROM - Einsatz anlegen" Height="400" Width="400"
+        ResizeMode="NoResize" WindowStyle="ToolWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="38"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" FontWeight="Bold">Einsatz anlegen</Label>
+        
+        <Label Grid.Row="1"  Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Einsatznummer:</Label>
+        <TextBox Grid.Row="1" Name="TextBox_Identifier" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+        <Label Grid.Row="2"  Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Einsatzstichwort:</Label>
+        <TextBox Grid.Row="2" Name="TextBox_MissionOrder" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+        <Label Grid.Row="3" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Einsatzort:</Label>
+        <TextBox Grid.Row="3" Name="TextBox_PlaceOfAction" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+        <Label Grid.Row="4" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Alarmierung durch:</Label>
+        <TextBox Grid.Row="4" Name="TextBox_AlertedBy" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+        <Label Grid.Row="5" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Zeitp. d. Alarmierung:</Label>
+        <TextBox Grid.Row="5" Name="TextBox_TimeOfAlterting" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+        <Label Grid.Row="6" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Kontakt Polizei:</Label>
+        <TextBox Grid.Row="6" Name="TextBox_PoliceContact" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+        <Label Grid.Row="7" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Kontakt Leitstelle:</Label>
+        <TextBox Grid.Row="7" Name="TextBox_OperationManager" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+        <Label Grid.Row="8" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">RH Einsatzleiter:</Label>
+        <TextBox Grid.Row="8" Name="TextBox_HeadquarterContact" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+        <Label Grid.Row="9" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Schriftführer:</Label>
+        <TextBox Grid.Row="9" Name="TextBox_Secretary" Grid.Column="5" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+        <Grid Grid.Row="10" Width="200" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 5 5 0" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Name="Button_Cancel" Content="Abbrechen" Click="Button_Cancel_Click"/>
+            <Button Grid.Column="3" Name="Button_Save" Click="Button_Save_Click">Speichern</Button>
+            
+
+        </Grid>
+
+    </Grid>
+</Window>

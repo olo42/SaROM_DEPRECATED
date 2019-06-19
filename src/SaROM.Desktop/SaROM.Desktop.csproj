@@ -86,7 +86,7 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="RunMisson.xaml">
+    <Page Include="Dialogs\CreateOperationDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -102,8 +102,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RunMisson.xaml.cs">
-      <DependentUpon>RunMisson.xaml</DependentUpon>
+    <Compile Include="Dialogs\CreateOperationDialog.xaml.cs">
+      <DependentUpon>CreateOperationDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -173,6 +173,10 @@
     <ProjectReference Include="..\SaROM.BL\SaROM.BL.csproj">
       <Project>{313a0b1b-d506-4ec1-96e8-241021653af2}</Project>
       <Name>SaROM.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SaROM.Entities\SaROM.Entities.csproj">
+      <Project>{358D2AEA-6341-4BF3-8A70-491695E62D62}</Project>
+      <Name>SaROM.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -13,6 +13,7 @@ namespace SaROM.Desktop
   {
     private Login login = null;
     private LoginManager loginManager = null;
+    private OperationManager operationManager = null;
 
     public MainWindow()
     {
@@ -20,7 +21,9 @@ namespace SaROM.Desktop
       // RegisterLoginControl();
 
       // Avoid login every time during development
-      var operation = new Operation();
+      this.operationManager = new OperationManager();
+
+      var operation = new Operation(operationManager);
       SetContent(operation); 
     }
 
@@ -34,9 +37,9 @@ namespace SaROM.Desktop
 
     private void CallOperationManagement(object sender, EventArgs e)
     {
-      var operation = new Operation();
+      //var operation = new Operation();
 
-      SetContent(operation);
+      //SetContent(operation);
     }
 
     private void RegisterLoginControl()
