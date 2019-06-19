@@ -1,0 +1,57 @@
+﻿<Window x:Class="SaROM.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SaROM.Desktop"
+        mc:Ignorable="d"
+        Title="Search and Rescue Operation Manager" 
+        Height="768" 
+        Width="1366" 
+        MinHeight="768" 
+        MinWidth="1024">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Datei">
+                    <MenuItem Header="Open"/>
+                    <Separator></Separator>
+                    <MenuItem Header="Beenden"/>
+                </MenuItem>
+                <MenuItem Header="Ansicht">
+                    <MenuItem Header="Laufender Einsatz"/>
+                    <MenuItem Header="Einsatzarchiv"/>
+                    <MenuItem Header="Stammdaten"/>
+                </MenuItem>
+                <MenuItem Header="Drucken">
+                    <MenuItem Header="Vermisstendaten"/>
+                    <MenuItem Header="Funkzuweisungen"/>
+                    <MenuItem Header="Einsatzprotokoll"/>
+                </MenuItem>
+                <MenuItem Header="Hilfe">
+                    <MenuItem Header="Handbuch"/>
+                    <Separator></Separator>
+                    <MenuItem Header="Über SaROM"/>
+                </MenuItem>
+            </Menu>
+            <StackPanel></StackPanel>
+        </DockPanel>
+        <ContentControl Name="cc_Main" Grid.Row="1" Background="#FFD83A3A" Margin="5" />
+        <!--<Grid Grid.Row="1" Name="grd_main">
+            <Grid.RowDefinitions>
+                <RowDefinition Name="grd_RowTop" Height="40"/>
+                <RowDefinition Name="grd_RowContent" />
+            </Grid.RowDefinitions>
+            <Separator Grid.Row="0" Height="2" Background="#FFF5FF22" VerticalAlignment="Bottom" />
+            <Label Grid.Row="0" Content="SaROM - Search and Rescue Dog Operation Management" HorizontalAlignment="Left" 
+               Margin="10,0,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+            <Image Grid.Row="0" Source="Images/Logo-WM-HKS14-4c.jpg" Stretch="Fill" HorizontalAlignment="Right" 
+               VerticalAlignment="Top" Margin="0,6,10,0" Width="150" Height="25"/>
+            <ContentControl Name="cc_Main" Grid.Row="1" Background="#FFD83A3A" Margin="15" />
+        </Grid>-->
+    </Grid>
+</Window>
