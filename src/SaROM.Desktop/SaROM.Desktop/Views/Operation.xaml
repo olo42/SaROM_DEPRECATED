@@ -16,7 +16,7 @@
             <RowDefinition Height="250"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid>
+        <Grid Margin="0 23 0 0 ">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -28,7 +28,7 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Button Name="Button_CreateMisson" Margin="5" Click="Button_CreateMisson_Click">
-                <TextBlock TextWrapping="Wrap" Text="Ensatz anlegen" TextAlignment="Center" />
+                <TextBlock TextWrapping="Wrap" Text="Einsatz anlegen" TextAlignment="Center" />
             </Button>
             <Button Name="Button_RecordMissingPersons" Grid.Column="1" Margin="5" IsEnabled="False">
                 <TextBlock TextWrapping="Wrap" Text="Vermisste erfassen" TextAlignment="Center" />
@@ -45,19 +45,21 @@
             <Button Name="Button_Print" Grid.Row="1" Grid.Column="2" Margin="5" IsEnabled="False">
                 <TextBlock TextWrapping="Wrap" Text="Drucken" TextAlignment="Center" />
             </Button>
-            <Button Name="Button_BaseData"  Grid.Row="2" Margin="5">
+            <Button Visibility="Hidden" Name="Button_BaseData"  Grid.Row="2" Margin="5">
                 <TextBlock TextWrapping="WrapWithOverflow" Text="Stammdaten erfassen" TextAlignment="Center" />
             </Button>
-            <Button Name="Button_Archive" Grid.Row="2" Grid.Column="1" Margin="5">
+            <Button Visibility="Hidden" Name="Button_Archive" Grid.Row="2" Grid.Column="1" Margin="5">
                 <TextBlock TextWrapping="Wrap" Text="Einsatz-Archiv" TextAlignment="Center" />
             </Button>
-            <Button Name="Button_MissonComlete" Grid.Row="2" Grid.Column="2" Margin="5" IsEnabled="False" Click="Button_MissonComlete_Click">
-                <TextBlock TextWrapping="Wrap" Text="Ensatz abschließen" TextAlignment="Center" />
+            <Button Name="Button_MissonComlete" Grid.Row="2" Grid.Column="0" Margin="5" IsEnabled="False" Click="Button_MissonComlete_Click">
+                <TextBlock TextWrapping="Wrap" Text="Einsatz abschließen" TextAlignment="Center" />
             </Button>
         </Grid>
-        <GroupBox Grid.Column="1" Header="Notizen">
-            <RichTextBox Block.LineHeight="10" VerticalScrollBarVisibility="Visible" />
-        </GroupBox>
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <Label Grid.Column="1" Content="Notizen" Height="27" />
+            <RichTextBox Block.LineHeight="10" VerticalScrollBarVisibility="Visible" Height="223" />
+        </StackPanel>
+
         <TabControl Grid.Column="2">
             <TabItem Header="Kräfte">
                 <DataGrid />
