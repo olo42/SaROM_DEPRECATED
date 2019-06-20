@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SaROM.BL
 {
-    public class LoginManager
+    public class LoginController
     {
         public bool IsValidLogin(string username, string password)
         {

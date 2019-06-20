@@ -7,8 +7,8 @@ namespace SaROM.Desktop.Dialogs
 {
   public partial class CreateOperationDialog : Window
   {
-    OperationManager operationManager = null;
-    public CreateOperationDialog(OperationManager operationManager)
+    OperationController operationManager = null;
+    public CreateOperationDialog(OperationController operationManager)
     {
       InitializeComponent();
 
@@ -40,7 +40,7 @@ namespace SaROM.Desktop.Dialogs
       operation.HeadquarterContact = TextBox_HeadquarterContact.Text;
       operation.Secretary = TextBox_Secretary.Text;
 
-      operationManager.CreateOperation(operation);
+      operationManager.SetOperation(operation);
 
       this.Close();
     }

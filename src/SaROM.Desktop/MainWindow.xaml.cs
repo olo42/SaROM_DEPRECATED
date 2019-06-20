@@ -12,13 +12,14 @@ namespace SaROM.Desktop
   public partial class MainWindow : Window
   {
     private LoginControl loginControl = null;
-    private LoginManager loginManager = null;
+    private LoginController loginManager = null;
     private OperationControl operationControl = null;
-    private OperationManager operationManager = null;
+    private OperationController operationManager = null;
 
     public MainWindow()
     {
-      this.operationManager = new OperationManager();
+      this.operationManager = new OperationController();
+
 
       InitializeComponent();
       InitializeLoginControl();
@@ -32,7 +33,7 @@ namespace SaROM.Desktop
 
     private void InitializeLoginControl()
     {
-      loginManager = new LoginManager();
+      loginManager = new LoginController();
       loginControl = new LoginControl(loginManager);
       loginControl.LoginSuccessfull += OnSuccessfullLogin;
     }

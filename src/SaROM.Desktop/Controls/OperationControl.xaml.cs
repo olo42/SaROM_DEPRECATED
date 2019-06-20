@@ -14,26 +14,18 @@ namespace SaROM.Desktop.Controls
   {
     private List<Button> buttonsDisabledOnMisson;
     private List<Button> buttonsEnabledOnMisson;
-    private OperationManager operationManager;
+    private OperationController operationManager;
 
-    public OperationControl(OperationManager operationManager)
+    public OperationControl(OperationController operationManager)
     {
       InitializeComponent();
 
       this.operationManager = operationManager;
       this.operationManager.OperationCreated += this.OperationManager_OperationCreated;
+      this.operationManager.LogAdded += OperationManager_LogAdded;
 
       InitializeButtonsEnabledOnMisson();
       InitializeButtonsDisabledOnMisson();
-    }
-
-    private void OperationManager_OperationCreated(object sender, EventArgs e)
-    {
-      SetOperationInformation();
-      SetIsEnabled(true, buttonsEnabledOnMisson);
-      SetIsEnabled(false, buttonsDisabledOnMisson);
-
-      TabItem_Info.IsSelected = true;
     }
 
     private void Button_CreateMisson_Click(object sender, RoutedEventArgs e)
@@ -68,6 +60,20 @@ namespace SaROM.Desktop.Controls
         Button_Print,
         Button_MissonComlete
       };
+    }
+
+    private void OperationManager_LogAdded(object sender, EventArgs e)
+    {
+      throw new NotImplementedException();
+    }
+
+    private void OperationManager_OperationCreated(object sender, EventArgs e)
+    {
+      SetOperationInformation();
+      SetIsEnabled(true, buttonsEnabledOnMisson);
+      SetIsEnabled(false, buttonsDisabledOnMisson);
+
+      TabItem_Info.IsSelected = true;
     }
 
     private void SetIsEnabled(bool state, List<Button> buttons)

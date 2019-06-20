@@ -10,9 +10,9 @@ namespace SaROM.Desktop.Controls
     /// </summary>
     public partial class LoginControl : UserControl
     {
-        private LoginManager loginManager;
+        private LoginController loginManager;
 
-        public LoginControl(LoginManager loginManager)
+        public LoginControl(LoginController loginManager)
         {
             InitializeComponent();
 

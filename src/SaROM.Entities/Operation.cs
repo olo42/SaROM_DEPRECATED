@@ -2,26 +2,33 @@
 
 namespace SaROM.Entities
 {
-  public class Operation
-  {
-    public string AlertedBy { get; set; }
+    public class Operation
+    {
+        private List<LogMessage> logs;
 
-    public string HeadquarterContact { get; set; }
+        public string AlertedBy { get; set; }
 
-    public string Identifier { get; set; }
+        public string HeadquarterContact { get; set; }
 
-    public List<Person> MissingPeople { get; set; }
+        public string Identifier { get; set; }
 
-    public string MissionOrder { get; set; }
+        public List<Person> MissingPeople { get; set; }
 
-    public string OperationManager { get; set; }
+        public string MissionOrder { get; set; }
 
-    public string PlaceOfAction { get; set; }
+        public string OperationManager { get; set; }
 
-    public string PoliceContact { get; set; }
+        public string PlaceOfAction { get; set; }
 
-    public string Secretary { get; set; }
+        public string PoliceContact { get; set; }
 
-    public string TimeOfAlterting { get; set; }
-  }
+        public string Secretary { get; set; }
+
+        public string TimeOfAlterting { get; set; }
+        
+        public void AddToLog(LogMessage logMessage)
+        {
+            this.logs.Add(logMessage);
+        }
+    }
 }
