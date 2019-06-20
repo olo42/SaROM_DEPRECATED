@@ -28,7 +28,7 @@ namespace SaROM.Desktop.Controls
 
             if (loginManager.IsValidLogin(username, password))
             {
-                LoginSuccessfull?.Invoke(this, null);
+                LoginSuccessfull?.Invoke(this, EventArgs.Empty);
             }
             else
             {

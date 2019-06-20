@@ -1,7 +1,9 @@
 ﻿using SaROM.BL;
 using SaROM.Desktop.Dialogs;
+using SaROM.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,21 +16,20 @@ namespace SaROM.Desktop.Controls
   {
     private List<Button> buttonsDisabledOnMisson;
     private List<Button> buttonsEnabledOnMisson;
+    private Operation operation;
     private OperationController operationManager;
 
     public OperationControl(OperationController operationManager)
     {
       InitializeComponent();
-
-      this.operationManager = operationManager;
-      this.operationManager.OperationCreated += this.OperationManager_OperationCreated;
-      this.operationManager.LogAdded += OperationManager_LogAdded;
-
       InitializeButtonsEnabledOnMisson();
       InitializeButtonsDisabledOnMisson();
+
+      this.operationManager = operationManager;
+      RegisterOperationManagerEvents();
     }
 
-    private void Button_CreateMisson_Click(object sender, RoutedEventArgs e)
+    private void Button_CreateOperation_Click(object sender, RoutedEventArgs e)
     {
       var run = new CreateOperationDialog(operationManager);
       run.Show();
@@ -36,8 +37,8 @@ namespace SaROM.Desktop.Controls
 
     private void Button_MissonComlete_Click(object sender, RoutedEventArgs e)
     {
-      SetIsEnabled(false, buttonsEnabledOnMisson);
-      SetIsEnabled(true, buttonsDisabledOnMisson);
+      SetButtonState(false, buttonsEnabledOnMisson);
+      SetButtonState(true, buttonsDisabledOnMisson);
     }
 
     private void InitializeButtonsDisabledOnMisson()
@@ -62,21 +63,32 @@ namespace SaROM.Desktop.Controls
       };
     }
 
-    private void OperationManager_LogAdded(object sender, EventArgs e)
-    {
-      throw new NotImplementedException();
-    }
-
     private void OperationManager_OperationCreated(object sender, EventArgs e)
     {
+      this.operation = operationManager.GetOperation();
+
       SetOperationInformation();
-      SetIsEnabled(true, buttonsEnabledOnMisson);
-      SetIsEnabled(false, buttonsDisabledOnMisson);
+      SetButtonState(true, buttonsEnabledOnMisson);
+      SetButtonState(false, buttonsDisabledOnMisson);
+      SetLogItemSource();
 
       TabItem_Info.IsSelected = true;
+
+      var logMessage = $"Einsatz { this.operation.Identifier} angelegt.";
+      Logger.AddLog(logMessage, this.operation.Logs);
     }
 
-    private void SetIsEnabled(bool state, List<Button> buttons)
+    private void SetLogItemSource()
+    {
+      DataGrid_Log.ItemsSource = this.operation.Logs;
+    }
+
+    private void RegisterOperationManagerEvents()
+    {
+      this.operationManager.OperationCreated += this.OperationManager_OperationCreated;
+    }
+
+    private void SetButtonState(bool state, List<Button> buttons)
     {
       foreach (var button in buttons)
       {
@@ -86,8 +98,6 @@ namespace SaROM.Desktop.Controls
 
     private void SetOperationInformation()
     {
-      var operation = operationManager.GetOperation();
-
       Label_Identifier.Content = operation.Identifier;
       Label_MissionOrder.Content = operation.MissionOrder;
       Label_PlaceOfAction.Content = operation.PlaceOfAction;

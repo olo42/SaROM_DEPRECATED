@@ -13,13 +13,13 @@ namespace SaROM.BL
     }
 
     public event EventHandler OperationCreated;
-    public event EventHandler LogAdded;
+    public event EventHandler LogUpdated;
 
     public void SetOperation(Operation operation)
     {
       this.operation = operation;
 
-      OperationCreated?.Invoke(this, null);
+      OperationCreated?.Invoke(this, EventArgs.Empty);
     }
 
     public Operation GetOperation()

@@ -2,7 +2,7 @@
 
 namespace SaROM.Entities
 {
-    public class LogMessage
+    public class LogItem
     {
         public DateTime Created { get; set; }
 

@@ -42,8 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoginController.cs" />
-    <Compile Include="MissingPersonsManager.cs" />
-    <Compile Include="LogManager.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OperationController.cs" />
   </ItemGroup>
