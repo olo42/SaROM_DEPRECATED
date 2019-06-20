@@ -3,16 +3,16 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace SaROM.Desktop.Views
+namespace SaROM.Desktop.Controls
 {
     /// <summary>
     /// Interaction logic for LoginControl.xaml
     /// </summary>
-    public partial class Login : UserControl
+    public partial class LoginControl : UserControl
     {
         private LoginManager loginManager;
 
-        public Login(LoginManager loginManager)
+        public LoginControl(LoginManager loginManager)
         {
             InitializeComponent();
 

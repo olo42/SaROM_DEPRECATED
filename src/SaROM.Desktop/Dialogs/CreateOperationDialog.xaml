@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:SaROM.Desktop.Dialogs"
         mc:Ignorable="d"
         Title="SaROM - Einsatz anlegen" Height="400" Width="400"
-        ResizeMode="NoResize" WindowStyle="ToolWindow">
+        ResizeMode="NoResize" WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>

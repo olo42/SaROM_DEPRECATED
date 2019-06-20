@@ -1,5 +1,6 @@
 ﻿using SaROM.BL;
 using SaROM.Entities;
+using System;
 using System.Windows;
 
 namespace SaROM.Desktop.Dialogs
@@ -12,6 +13,13 @@ namespace SaROM.Desktop.Dialogs
       InitializeComponent();
 
       this.operationManager = operationManager;
+      this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+      this.ContentRendered += this.CreateOperationDialog_ContentRendered;
+    }
+
+    private void CreateOperationDialog_ContentRendered(object sender, System.EventArgs e)
+    {
+      TextBox_TimeOfAlterting.Text = $"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToShortTimeString()}"; 
     }
 
     private void Button_Cancel_Click(object sender, RoutedEventArgs e)

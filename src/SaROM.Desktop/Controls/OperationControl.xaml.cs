@@ -5,23 +5,23 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace SaROM.Desktop.Views
+namespace SaROM.Desktop.Controls
 {
   /// <summary>
   /// Interaction logic for Operation.xaml
   /// </summary>
-  public partial class Operation : UserControl
+  public partial class OperationControl : UserControl
   {
     private List<Button> buttonsDisabledOnMisson;
     private List<Button> buttonsEnabledOnMisson;
     private OperationManager operationManager;
 
-    public Operation(BL.OperationManager operationManager)
+    public OperationControl(OperationManager operationManager)
     {
       InitializeComponent();
 
       this.operationManager = operationManager;
-      operationManager.OperationCreated += this.OperationManager_OperationCreated;
+      this.operationManager.OperationCreated += this.OperationManager_OperationCreated;
 
       InitializeButtonsEnabledOnMisson();
       InitializeButtonsDisabledOnMisson();
@@ -30,13 +30,14 @@ namespace SaROM.Desktop.Views
     private void OperationManager_OperationCreated(object sender, EventArgs e)
     {
       SetOperationInformation();
+      SetIsEnabled(true, buttonsEnabledOnMisson);
+      SetIsEnabled(false, buttonsDisabledOnMisson);
+
+      TabItem_Info.IsSelected = true;
     }
 
     private void Button_CreateMisson_Click(object sender, RoutedEventArgs e)
     {
-      SetIsEnabled(true, buttonsEnabledOnMisson);
-      SetIsEnabled(false, buttonsDisabledOnMisson);
-
       var run = new CreateOperationDialog(operationManager);
       run.Show();
     }

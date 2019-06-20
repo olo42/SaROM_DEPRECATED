@@ -1,5 +1,5 @@
 ﻿using SaROM.BL;
-using SaROM.Desktop.Views;
+using SaROM.Desktop.Controls;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,49 +11,50 @@ namespace SaROM.Desktop
   /// </summary>
   public partial class MainWindow : Window
   {
-    private Login login = null;
+    private LoginControl loginControl = null;
     private LoginManager loginManager = null;
+    private OperationControl operationControl = null;
     private OperationManager operationManager = null;
 
     public MainWindow()
     {
-      InitializeComponent();
-      // RegisterLoginControl();
-
-      // Avoid login every time during development
       this.operationManager = new OperationManager();
 
-      var operation = new Operation(operationManager);
-      SetContent(operation); 
+      InitializeComponent();
+      InitializeLoginControl();
+      InitializeOperationControl();
+
+      // Avoid login every time during development
+      // ShowLoginControl();
+
+      SetContent(this.operationControl);
+    }
+
+    private void InitializeLoginControl()
+    {
+      loginManager = new LoginManager();
+      loginControl = new LoginControl(loginManager);
+      loginControl.LoginSuccessfull += OnSuccessfullLogin;
+    }
+
+    private void InitializeOperationControl()
+    {
+      operationControl = new OperationControl(operationManager);
     }
 
     private void OnSuccessfullLogin(object sender, EventArgs e)
     {
-      var overview = new Overview();
-      overview.OperationManagement_Click += CallOperationManagement;
-
-      SetContent(overview);
-    }
-
-    private void CallOperationManagement(object sender, EventArgs e)
-    {
-      //var operation = new Operation();
-
-      //SetContent(operation);
-    }
-
-    private void RegisterLoginControl()
-    {
-      loginManager = new LoginManager();
-      login = new Login(loginManager);
-      login.LoginSuccessfull += OnSuccessfullLogin;
-
-      SetContent(login);
+      SetContent(operationControl);
     }
 
     private void SetContent(Control overview)
     {
       cc_Main.Content = overview;
+    }
+
+    private void ShowLoginControl()
+    {
+      SetContent(loginControl);
     }
   }
 }
