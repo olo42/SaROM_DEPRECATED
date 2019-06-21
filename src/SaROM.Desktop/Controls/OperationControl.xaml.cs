@@ -3,9 +3,9 @@ using SaROM.Desktop.Dialogs;
 using SaROM.Entities;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace SaROM.Desktop.Controls
 {
@@ -63,6 +63,21 @@ namespace SaROM.Desktop.Controls
       };
     }
 
+    private void InitializeDataGrid_Log()
+    {
+      DataGrid_Log.ItemsSource = this.operation.Logs;
+
+      var dateTime = new DataGridTextColumn();
+      dateTime.Header = "Erstellt";
+      dateTime.Binding = new Binding("Created");
+      DataGrid_Log.Columns.Add(dateTime);
+
+      var message = new DataGridTextColumn();
+      message.Header = "Nachricht";
+      message.Binding = new Binding("Message");
+      DataGrid_Log.Columns.Add(message);
+    }
+
     private void OperationManager_OperationCreated(object sender, EventArgs e)
     {
       this.operation = operationManager.GetOperation();
@@ -70,17 +85,12 @@ namespace SaROM.Desktop.Controls
       SetOperationInformation();
       SetButtonState(true, buttonsEnabledOnMisson);
       SetButtonState(false, buttonsDisabledOnMisson);
-      SetLogItemSource();
+      InitializeDataGrid_Log();
 
       TabItem_Info.IsSelected = true;
 
       var logMessage = $"Einsatz { this.operation.Identifier} angelegt.";
       Logger.AddLog(logMessage, this.operation.Logs);
-    }
-
-    private void SetLogItemSource()
-    {
-      DataGrid_Log.ItemsSource = this.operation.Logs;
     }
 
     private void RegisterOperationManagerEvents()

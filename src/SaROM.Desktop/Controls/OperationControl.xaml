@@ -115,7 +115,8 @@
       </TabItem>
     </TabControl>
     <GroupBox Grid.Row="1" Grid.ColumnSpan="3" Header="Einsatzprotokoll" Margin="0 15 0 0" FontWeight="Bold">
-      <DataGrid Name="DataGrid_Log" FontWeight="Normal" IsReadOnly="True" />
+      <DataGrid Name="DataGrid_Log" FontWeight="Normal" FontSize="12" IsReadOnly="True" AutoGenerateColumns="False">
+      </DataGrid>
     </GroupBox>
   </Grid>
 </UserControl>
