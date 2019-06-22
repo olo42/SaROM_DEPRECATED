@@ -3,6 +3,7 @@ using SaROM.Desktop.Dialogs;
 using SaROM.Entities;
 using System;
 using System.Collections.Generic;
+using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -68,12 +69,12 @@ namespace SaROM.Desktop.Controls
       DataGrid_Log.ItemsSource = this.operation.Logs;
 
       var dateTime = new DataGridTextColumn();
-      dateTime.Header = "Erstellt";
+      dateTime.Header = Properties.Resources.Created;
       dateTime.Binding = new Binding("Created");
       DataGrid_Log.Columns.Add(dateTime);
 
       var message = new DataGridTextColumn();
-      message.Header = "Nachricht";
+      message.Header = Properties.Resources.Message;
       message.Binding = new Binding("Message");
       DataGrid_Log.Columns.Add(message);
     }
