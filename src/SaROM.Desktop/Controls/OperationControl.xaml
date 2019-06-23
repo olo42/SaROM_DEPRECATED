@@ -31,7 +31,7 @@
       <Button Name="Button_CreateMisson" Margin="5" Click="Button_CreateOperation_Click">
                 <TextBlock TextWrapping="Wrap" Padding="3" Text="{x:Static p:Resources.StartOperation}" TextAlignment="Center" />
       </Button>
-      <Button Name="Button_RecordMissingPersons" Grid.Column="1" Margin="5" IsEnabled="False">
+      <Button Name="Button_RecordMissingPersons" Grid.Column="1" Margin="5" IsEnabled="False" Click="Button_RecordMissingPersons_Click">
                 <TextBlock TextWrapping="Wrap" Text="{x:Static p:Resources.RecordMissingPeople}" TextAlignment="Center" />
       </Button>
       <Button Name="Button_RecordEmergencyForces"  Grid.Column="2" Margin="5" IsEnabled="False">

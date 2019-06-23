@@ -18,22 +18,22 @@ namespace SaROM.Desktop.Controls
     private List<Button> buttonsDisabledOnMisson;
     private List<Button> buttonsEnabledOnMisson;
     private Operation operation;
-    private OperationController operationManager;
+    private OperationController operationController;
 
-    public OperationControl(OperationController operationManager)
+    public OperationControl(OperationController operationController)
     {
       InitializeComponent();
       InitializeButtonsEnabledOnMisson();
       InitializeButtonsDisabledOnMisson();
 
-      this.operationManager = operationManager;
+      this.operationController = operationController;
       RegisterOperationManagerEvents();
     }
 
     private void Button_CreateOperation_Click(object sender, RoutedEventArgs e)
     {
-      var run = new CreateOperationDialog(operationManager);
-      run.Show();
+      var createOperationDialog = new CreateOperationDialog(this.operationController);
+      createOperationDialog.Show();
     }
 
     private void Button_MissonComlete_Click(object sender, RoutedEventArgs e)
@@ -81,7 +81,7 @@ namespace SaROM.Desktop.Controls
 
     private void OperationManager_OperationCreated(object sender, EventArgs e)
     {
-      this.operation = operationManager.GetOperation();
+      this.operation = operationController.GetOperation();
 
       SetOperationInformation();
       SetButtonState(true, buttonsEnabledOnMisson);
@@ -96,7 +96,7 @@ namespace SaROM.Desktop.Controls
 
     private void RegisterOperationManagerEvents()
     {
-      this.operationManager.OperationCreated += this.OperationManager_OperationCreated;
+      this.operationController.OperationCreated += this.OperationManager_OperationCreated;
     }
 
     private void SetButtonState(bool state, List<Button> buttons)
@@ -118,6 +118,12 @@ namespace SaROM.Desktop.Controls
       Label_OperationManager.Content = operation.OperationManager;
       Label_HeadquarterContact.Content = operation.HeadquarterContact;
       Label_Secretary.Content = operation.Secretary;
+    }
+
+    private void Button_RecordMissingPersons_Click(object sender, RoutedEventArgs e)
+    {
+      var recordMissingPeopleDialog = new RecordMissingPeopleDialog(this.operationController);
+      recordMissingPeopleDialog.Show();
     }
   }
 }
