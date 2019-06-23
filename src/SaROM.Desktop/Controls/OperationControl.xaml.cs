@@ -79,7 +79,7 @@ namespace SaROM.Desktop.Controls
       DataGrid_Log.Columns.Add(message);
     }
 
-    private void OperationManager_OperationCreated(object sender, EventArgs e)
+    private void OperationController_OperationCreated(object sender, EventArgs e)
     {
       this.operation = operationController.GetOperation();
 
@@ -96,7 +96,7 @@ namespace SaROM.Desktop.Controls
 
     private void RegisterOperationManagerEvents()
     {
-      this.operationController.OperationCreated += this.OperationManager_OperationCreated;
+      this.operationController.OperationCreated += this.OperationController_OperationCreated;
     }
 
     private void SetButtonState(bool state, List<Button> buttons)

@@ -1,20 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace SaROM.Entities
 {
   public class Operation
   {
-    ObservableCollection<LogItem> logs = null;
+    private ObservableCollection<LogItem> logs = null;
+    private ObservableCollection<Person> missingPeople = null;
 
     public Operation()
     {
-      this.logs = new ObservableCollection<LogItem>(); 
-    }
-
-    public ObservableCollection<LogItem> Logs
-    {
-      get { return this.logs;  }
+      this.logs = new ObservableCollection<LogItem>();
+      this.missingPeople = new ObservableCollection<Person>();
     }
 
     public string AlertedBy { get; set; }
@@ -23,7 +19,15 @@ namespace SaROM.Entities
 
     public string Identifier { get; set; }
 
-    public List<Person> MissingPeople { get; set; }
+    public ObservableCollection<LogItem> Logs
+    {
+      get { return this.logs; }
+    }
+
+    public ObservableCollection<Person> MissingPeople
+    {
+      get { return this.missingPeople; }
+    }
 
     public string MissionOrder { get; set; }
 

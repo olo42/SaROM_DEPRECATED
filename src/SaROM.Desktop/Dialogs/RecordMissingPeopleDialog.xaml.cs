@@ -1,23 +1,9 @@
 ﻿using SaROM.BL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SaROM.Entities;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SaROM.Desktop.Dialogs
 {
-  /// <summary>
-  /// Interaction logic for RecordMissingPeopleDialog.xaml
-  /// </summary>
   public partial class RecordMissingPeopleDialog : Window
   {
     private OperationController operationController;
@@ -26,6 +12,41 @@ namespace SaROM.Desktop.Dialogs
     {
       InitializeComponent();
       this.operationController = operationController;
+    }
+
+    private void Button_Cancel_Click(object sender, RoutedEventArgs e)
+    {
+      this.Close();
+    }
+
+    private void Button_Save_Click(object sender, RoutedEventArgs e)
+    {
+      Person missingPerson = this.CreateMissingPerson();
+
+      var operation = this.operationController.GetOperation();
+      operation.MissingPeople.Add(missingPerson);
+
+      this.Close();
+    }
+
+    private Person CreateMissingPerson()
+    {
+      var missingPerson = new Person();
+
+      missingPerson.Name = TextBox_Name.Text;
+      missingPerson.Address = TextBox_Adddress.Text;
+      missingPerson.Age = TextBox_YearOfBirth_Age.Text;
+      missingPerson.Gender = TextBox_Gender.Text;
+      missingPerson.Height = TextBox_Size.Text;
+      missingPerson.Weight = TextBox_Weight.Text;
+      missingPerson.HairColor = TextBox_HairColor.Text;
+      missingPerson.Clothes = TextBox_Clothes.Text;
+      missingPerson.SpecialProperties = TextBox_SpecialProperties.Text;
+      missingPerson.Diseases = TextBox_Diseases.Text;
+      missingPerson.Medicals = TextBox_Medicals.Text;
+      missingPerson.AdditionalInformation = TextBox_AdditionalInformation.Text;
+
+      return missingPerson;
     }
   }
 }
