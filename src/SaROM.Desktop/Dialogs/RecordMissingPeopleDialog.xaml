@@ -8,86 +8,91 @@
         Title="SaROM - Vermisste erfassen" Height="450" Width="800"
         ResizeMode="NoResize" WindowStyle="ToolWindow"
         WindowStartupLocation="CenterScreen">
-  <Grid>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition></ColumnDefinition>
-      <ColumnDefinition></ColumnDefinition>
-    </Grid.ColumnDefinitions>
-    <Grid Grid.Column="0">
-      <Grid.RowDefinitions>
-        <RowDefinition></RowDefinition>
-        <RowDefinition Height="30"></RowDefinition>
-        <RowDefinition Height="30"></RowDefinition>
-        <RowDefinition Height="30"></RowDefinition>
-        <RowDefinition Height="30"></RowDefinition>
-        <RowDefinition Height="30"></RowDefinition>
-        <RowDefinition Height="30"></RowDefinition>
-        <RowDefinition Height="30"></RowDefinition>
-        <RowDefinition Height="30"></RowDefinition>
-        <RowDefinition Height="30"></RowDefinition>
-        <RowDefinition Height="30"></RowDefinition>
-        <RowDefinition Height="30"></RowDefinition>
-        <RowDefinition Height="38"></RowDefinition>
-      </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="120"></ColumnDefinition>
-        <ColumnDefinition Width="10"></ColumnDefinition>
-        <ColumnDefinition></ColumnDefinition>
-      </Grid.ColumnDefinitions>
-      <Label HorizontalAlignment="Left" Margin="30 0 0 0" Grid.ColumnSpan="3" VerticalAlignment="Center" FontSize="14" FontWeight="Bold">Vermisstendaten erfassen</Label>
-
-      <Label Grid.Row="1"  Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Name:</Label>
-      <TextBox Grid.Row="1" Name="TextBox_Name" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
-
-      <Label Grid.Row="2"  Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Anschrift:</Label>
-      <TextBox Grid.Row="2" Name="TextBox_Adddress" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
-
-      <Label Grid.Row="3" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Geburtsjahr / Alter:</Label>
-      <TextBox Grid.Row="3" Name="TextBox_YearOfBirth_Age" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
-
-      <Label Grid.Row="4" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Geschlecht:</Label>
-      <TextBox Grid.Row="4" Name="TextBox_Gender" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
-
-      <Label Grid.Row="5" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Größe:</Label>
-      <TextBox Grid.Row="5" Name="TextBox_Size" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
-
-      <Label Grid.Row="6" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Gewicht:</Label>
-      <TextBox Grid.Row="6" Name="TextBox_Weight" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
-
-      <Label Grid.Row="7" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Haarfarbe:</Label>
-      <TextBox Grid.Row="7" Name="TextBox_HairColor" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
-
-      <Label Grid.Row="8" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Kleidung:</Label>
-      <TextBox Grid.Row="8" Name="TextBox_Clothes" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
-
-      <Label Grid.Row="9" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Bes Merkmale:</Label>
-      <TextBox Grid.Row="9" Name="TextBox_SpecialProperties" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
-
-      <Label Grid.Row="10" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Erkrankungen:</Label>
-      <TextBox Grid.Row="10" Name="TextBox_Diseases" Grid.Column="5" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
-
-      <Label Grid.Row="11" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Medikamente:</Label>
-      <TextBox Grid.Row="11" Name="TextBox_Medicals" Grid.Column="5" Margin="0 0 5 0" VerticalAlignment="Center" 
-               VerticalContentAlignment="Center" FontSize="12" Height="25" TextWrapping="Wrap" />
-    </Grid>
-    <Grid Grid.Column="1" Margin="10 20 15 0">
-      <Grid.RowDefinitions>
-        <RowDefinition Height="25"></RowDefinition>
-        <RowDefinition></RowDefinition>
-        <RowDefinition Height="40"></RowDefinition>
-      </Grid.RowDefinitions>
-      <Label Grid.Row="0">Weitere Informationen:</Label>
-      <TextBox Grid.Row="1" Name="TextBox_AdditionalInformation"></TextBox>
-      <Grid Grid.Row="10" Width="200" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" 
-            Margin="0 6 0 0" Grid.ColumnSpan="3">
+    <Grid>
         <Grid.ColumnDefinitions>
-          <ColumnDefinition></ColumnDefinition>
-          <ColumnDefinition Width="10"></ColumnDefinition>
-          <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Name="Button_Cancel" Content="Abbrechen" HorizontalAlignment="Right" Width="95" Click="Button_Cancel_Click" />
-        <Button Grid.Column="3" Name="Button_Save" Click="Button_Save_Click">Speichern</Button>
-      </Grid>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="38"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label HorizontalAlignment="Left" Margin="30 0 0 0" Grid.ColumnSpan="3" VerticalAlignment="Center" FontSize="14" FontWeight="Bold">Vermisstendaten erfassen</Label>
+
+            <Label Grid.Row="1"  Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Name:</Label>
+            <TextBox Grid.Row="1" Name="TextBox_Name" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+            <Label Grid.Row="2"  Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Anschrift:</Label>
+            <TextBox Grid.Row="2" Name="TextBox_Adddress" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+            <Label Grid.Row="3" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Geburtsjahr / Alter:</Label>
+            <TextBox Grid.Row="3" Name="TextBox_YearOfBirth_Age" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+            <Label Grid.Row="4" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Geschlecht:</Label>
+            <TextBox Grid.Row="4" Name="TextBox_Gender" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+            <Label Grid.Row="5" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Größe:</Label>
+            <TextBox Grid.Row="5" Name="TextBox_Size" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+            <Label Grid.Row="6" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Gewicht:</Label>
+            <TextBox Grid.Row="6" Name="TextBox_Weight" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+            <Label Grid.Row="7" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Haarfarbe:</Label>
+            <TextBox Grid.Row="7" Name="TextBox_HairColor" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+            <Label Grid.Row="8" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Kleidung:</Label>
+            <TextBox Grid.Row="8" Name="TextBox_Clothes" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+            <Label Grid.Row="9" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Vermisst seit:</Label>
+            <TextBox Grid.Row="9" Name="TextBox_MissingSince" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+            <Label Grid.Row="10" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Bes Merkmale:</Label>
+            <TextBox Grid.Row="10" Name="TextBox_SpecialProperties" Grid.Column="2" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+            <Label Grid.Row="11" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Erkrankungen:</Label>
+            <TextBox Grid.Row="11" Name="TextBox_Diseases" Grid.Column="5" Margin="0 0 5 0" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Height="25" />
+
+            <Label Grid.Row="12" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12">Medikamente:</Label>
+            <TextBox Grid.Row="12" Name="TextBox_Medicals" Grid.Column="5" Margin="0 0 5 0" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" FontSize="12" Height="25" TextWrapping="Wrap" />
+        </Grid>
+        <Grid Grid.Column="1" Margin="10 20 15 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0">Weitere Informationen:</Label>
+            <TextBox Grid.Row="1" Name="TextBox_AdditionalInformation" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
+            
+            <Grid Grid.Row="4" Width="200" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 6 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Name="Button_Cancel" Content="Abbrechen" HorizontalAlignment="Right" Width="95" Click="Button_Cancel_Click" />
+                <Button Grid.Column="3" Name="Button_Save" Click="Button_Save_Click">Speichern</Button>
+            </Grid>
+        </Grid>
     </Grid>
-  </Grid>
 </Window>

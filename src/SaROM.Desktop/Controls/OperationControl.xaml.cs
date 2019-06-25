@@ -3,7 +3,6 @@ using SaROM.Desktop.Dialogs;
 using SaROM.Entities;
 using System;
 using System.Collections.Generic;
-using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +18,7 @@ namespace SaROM.Desktop.Controls
     private List<Button> buttonsEnabledOnMisson;
     private Operation operation;
     private OperationController operationController;
+    private TimeSpan timeSpan;
 
     public OperationControl(OperationController operationController)
     {
@@ -42,11 +42,22 @@ namespace SaROM.Desktop.Controls
       SetButtonState(true, buttonsDisabledOnMisson);
     }
 
+    private void Button_RecordMissingPersons_Click(object sender, RoutedEventArgs e)
+    {
+      var recordMissingPeopleDialog = new RecordMissingPeopleDialog(this.operationController);
+      recordMissingPeopleDialog.Show();
+    }
+
+    private void DispatcherTimerTick(object sender, EventArgs e)
+    {
+      this.timeSpan = this.timeSpan.Add(new TimeSpan(0, 0, 1));
+      Label_RunTime.Content = this.timeSpan.ToString();
+    }
+
     private void InitializeButtonsDisabledOnMisson()
     {
       buttonsDisabledOnMisson = new List<Button>
       {
-        Button_Archive,
         Button_CreateMisson
       };
     }
@@ -92,6 +103,8 @@ namespace SaROM.Desktop.Controls
 
       var logMessage = $"Einsatz { this.operation.Identifier} angelegt.";
       Logger.AddLog(logMessage, this.operation.Logs);
+
+      StartRunTimeClock();
     }
 
     private void RegisterOperationManagerEvents()
@@ -120,10 +133,14 @@ namespace SaROM.Desktop.Controls
       Label_Secretary.Content = operation.Secretary;
     }
 
-    private void Button_RecordMissingPersons_Click(object sender, RoutedEventArgs e)
+    private void StartRunTimeClock()
     {
-      var recordMissingPeopleDialog = new RecordMissingPeopleDialog(this.operationController);
-      recordMissingPeopleDialog.Show();
+      this.timeSpan = new TimeSpan();
+
+      System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+      dispatcherTimer.Tick += new EventHandler(DispatcherTimerTick);
+      dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+      dispatcherTimer.Start();
     }
   }
 }
